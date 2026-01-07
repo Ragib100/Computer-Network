@@ -1,0 +1,25 @@
+router> en
+router# conf t
+
+router(config)# interface GigabitEthernet0/1
+router(config-if)# ip address 192.168.10.1 255.255.255.0
+router(config-if)# no shutdown
+router(config-if)# exit
+
+// check the dce status and set the clock rate if necessary
+
+
+router(config)# show controllers Serial0/0
+// if the interface is DCE, set the clock rate
+
+
+// clock rate is for only the serial connection with dce 
+// if dce
+
+router(config)# interface Serial0/0
+router(config-if)# clock rate 64000
+router(config-if)# exit
+
+router(config)# router eigrp 100
+router(config-router)# no auto-summary
+router(config-router)# network 192.168.10.0

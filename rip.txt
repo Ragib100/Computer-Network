@@ -1,0 +1,13 @@
+router> en
+router# conf t
+
+router(config)# interface GigabitEthernet0/1
+router(config-if)# ip address 192.168.1.1 255.255.255.0
+router(config-if)# no shutdown
+router(config-if)# exit
+
+router(config)# router rip
+router(config-router)# version 2
+router(config-router)# network 192.168.1.0
+router(config-router)# exit
+router(config)# exit
