@@ -1,0 +1,14 @@
+router> en
+router# conf t
+
+router(config)# ip dhcp pool lan1
+router(dhcp-config)# network 192.168.10.0 255.255.255.0
+router(dhcp-config)# default-router 192.168.10.1
+router(dhcp-config)# exit
+
+router(config)# interface GigabitEthernet0/1
+router(config-if)# ip address 192.168.10.1 255.255.255.0
+router(config-if)# no shutdown
+router(config-if)# exit
+
+//now assign ip in pc as dhcp
